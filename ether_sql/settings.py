@@ -14,12 +14,12 @@ CELERYD_TASK_LOG_FORMAT = '[%(asctime)s][PID:%(process)d][%(levelname)s][%(proce
 
 class DefaultSettings():
     # SQLALCHEMY settings
-    SQLALCHEMY_USER = os.environ.get("USER")
+    SQLALCHEMY_USER = os.environ.get("DB_USER")
     # password that is set when creating psql user
-    SQLALCHEMY_PASSWORD = 'develop'
+    SQLALCHEMY_PASSWORD = os.environ.get("DB_PASSWORD")
     SQLALCHEMY_DB = 'ether_sql'
     SQLALCHEMY_HOST = 'localhost'
-    SQLALCHEMY_PORT = 5432
+    SQLALCHEMY_PORT = os.environ.get("DB_PORT", 5432)
 
     # Logging settings
     LOG_STDOUT = "TRUE"
