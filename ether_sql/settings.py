@@ -17,8 +17,8 @@ class DefaultSettings():
     SQLALCHEMY_USER = os.environ.get("DB_USER")
     # password that is set when creating psql user
     SQLALCHEMY_PASSWORD = os.environ.get("DB_PASSWORD")
-    SQLALCHEMY_DB = 'ether_sql'
-    SQLALCHEMY_HOST = 'localhost'
+    SQLALCHEMY_DB = os.environ.get("DB_NAME", 'ether_sql')
+    SQLALCHEMY_HOST = os.environ.get("DB_HOST", 'localhost')
     SQLALCHEMY_PORT = os.environ.get("DB_PORT", 5432)
 
     # Logging settings
