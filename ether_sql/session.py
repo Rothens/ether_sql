@@ -121,6 +121,8 @@ def setup_node_session(settings):
         w3 = Web3(IPCProvider())
     elif settings.NODE_TYPE == 'Infura':
         w3 = Web3(HTTPProvider(settings.NODE_URL))
+    elif settings.NODE_TYPE == 'ParityTCP':
+        w3 = Web3(HTTPProvider(settings.NODE_URL))
     else:
         raise ValueError('Node {} not supported'.format(settings.NODE_TYPE))
 

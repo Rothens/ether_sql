@@ -29,7 +29,7 @@ class DefaultSettings():
     # Node settings
     # Available options 'Geth', 'Parity', 'Infura'
     NODE_TYPE = "Infura"
-    NODE_URL = 'https://mainnet.infura.io/'
+    NODE_URL = os.environ.get("NODE_URL", 'https://mainnet.infura.io/')
     TIMEOUT = 10
     # Tables to parse
     # Use this option to parse traces, needs parity with cli --tracing=on
@@ -49,6 +49,10 @@ class PersonalParitySettings(DefaultSettings):
     NODE_TYPE = "Parity"
     PARSE_TRACE = True
     PARSE_STATE_DIFF = True
+    TIMEOUT = 60
+
+class PersonalParityTCPSettings(DefaultSettings):
+    NODE_TYPE = "ParityTCP"
     TIMEOUT = 60
 
 
